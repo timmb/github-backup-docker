@@ -15,7 +15,7 @@ while :; do
     else
       for u in $(echo $GITHUB_USER | tr "," "\n"); do
         echo "$(date) - execute backup for User ${u}, ${DATE}"
-        github-backup ${u} --token=$TOKEN --all --output-directory=/srv/var/${DATE}/${u} --private --gists --lfs
+        github-backup ${u} --token=$TOKEN --all --output-directory=/srv/var/${DATE}/${u} --private --gists --lfs --fork
       done
   fi
 
@@ -25,7 +25,7 @@ while :; do
     else
       for o in $(echo $GITHUB_ORG | tr "," "\n"); do
         echo "$(date) - execute backup for Organization ${u}, ${DATE}"
-        github-backup ${o} --organization --token=$TOKEN --all --output-directory=/srv/var/${DATE}/${o} --private --gists
+        github-backup ${o} --organization --token=$TOKEN --all --output-directory=/srv/var/${DATE}/${o} --private --gists --lfs --fork
       done
 	fi
 
