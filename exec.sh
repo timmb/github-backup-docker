@@ -15,7 +15,7 @@ while :; do
     else
       for u in $(echo $GITHUB_USER | tr "," "\n"); do
         echo "$(date) - execute backup for User ${u}, ${DATE}"
-        github-backup ${u} --token=$TOKEN --all --output-directory=/srv/var/${DATE}/${u} --private --gists
+        github-backup ${u} --token=$TOKEN --all --output-directory=/srv/var/${DATE}/${u} --private --gists --lfs
       done
   fi
 
